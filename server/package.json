@@ -4,11 +4,14 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "nodemon src/index.ts",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "dev": "bun --watch src/index.ts",
+    "build": "bun build src/index.ts --outdir ./dist --target bun",
+    "start": "NODE_ENV=production bun run ./dist/index.js",
+    "lint": "bunx eslint .",
+    "lint:fix": "bunx eslint . --fix",
+    "format": "bunx prettier --write .",
+    "format:check": "bunx prettier --check .",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@eslint/js": "^9.38.0",
