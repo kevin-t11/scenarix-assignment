@@ -10,8 +10,7 @@
     "lint": "bunx eslint .",
     "lint:fix": "bunx eslint . --fix",
     "format": "bunx prettier --write .",
-    "format:check": "bunx prettier --check .",
-    "prepare": "husky"
+    "format:check": "bunx prettier --check ."
   },
   "devDependencies": {
     "@eslint/js": "^9.38.0",
@@ -31,8 +30,10 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "nodemon": "^3.1.10",
+    "socket.io": "^4.8.1",
     "ts-node": "^10.9.2"
   }
 }
