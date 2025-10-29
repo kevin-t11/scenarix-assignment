@@ -14,18 +14,29 @@ import {
 const app = express();
 const server = createServer(app);
 
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://127.0.0.1:3000',
+  'https://scenarix-assignment-five.vercel.app',
+];
+
 const io = new SocketIOServer(server, {
   cors: {
-    origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
+    origin: allowedOrigins,
     methods: ['GET', 'POST'],
     credentials: true,
   },
 });
 
-app.use(cors());
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  }),
+);
 app.use(express.json());
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 // Socket connection handler
 io.on('connection', (socket) => {
